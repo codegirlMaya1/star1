@@ -1,0 +1,12 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+  
+  .column {
+    flex: 1;
+    border: 1px solid #ccc;
+    padding: 100;
+    text-align: center;
+  }

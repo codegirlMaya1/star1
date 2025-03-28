@@ -1,0 +1,66 @@
+/* StackedColumn.css */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .section {
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+  
+  .hero {
+    /* Styles for the HeroSection */
+    position: relative;
+    text-align: center;
+    color: white;
+    background-color: #000; /* Add a background color */
+    padding: 20px; /* Add padding */
+  }
+  
+  .hero img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .hero .centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    text-align: center;
+  }
+  
+  .hero .hero-title {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  .hero .hero-description {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .hero .hero-button {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+  }
+  
+  .hero .hero-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .features {
+    /* Styles for the WhyItWorks section */
+    margin-top: 2rem; /* Adjust the margin as needed */
+    /* Add any necessary styles here or remove this block if not needed */
+  }
