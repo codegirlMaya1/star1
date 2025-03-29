@@ -9,7 +9,10 @@ const NewAbout: React.FC = () => {
     <div className="new-about-page">
       <Header /> {/* Add the Header component */}
       <div className="content">
-        <StackedColumn /> {/* Add the StackedColumn component */}
+        <StackedColumn>
+          {/* Add the content you want to pass as children here */}
+          <div>Your content here</div>
+        </StackedColumn>
       </div>
       <Footer /> {/* Add the Footer component */}
     </div>

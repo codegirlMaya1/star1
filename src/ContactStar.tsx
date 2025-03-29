@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from './Header';
 import ContactForm from './ContactForm';
-import ContactInformation from './ContactInformation';
+import ContactInformation from './ContactInformation1';
 
 const ContactStar: React.FC = () => {
   return (

@@ -1,5 +1,5 @@
 "use client";
-import { ContactInformation } from "./ContactInformation";
+import ContactInformation from "./ContactInformation1";
 import { MessageForm } from "./MessageForm"; // Ensure this module exists
 
 export function ContactForm() {

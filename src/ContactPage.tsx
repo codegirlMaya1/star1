@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavigationHeader } from './NavigationHeader';
 import ContactForm from './ContactForm'; // Correct the import statement
-import ContactInformation from './ContactInformation'; // Correct the import statement
+import ContactInformation from './ContactInformation1'; // Correct the import statement
 import Footer from './Footer'; // Correct the import statement
 
 export const ContactPage: React.FC = () => {
