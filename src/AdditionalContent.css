@@ -1,0 +1,43 @@
+/* AdditionalContent.css */
+.additional-content .bg-cover {
+    background-size: cover;
+  }
+  
+  .additional-content .bg-center {
+    background-position: center;
+  }
+  
+  .additional-content .relative {
+    position: relative;
+  }
+  
+  .additional-content .text-white {
+    color: white;
+  }
+  
+  .additional-content .z-10 {
+    z-index: 10;
+  }
+  
+  .additional-content .absolute {
+    position: absolute;
+  }
+  
+  .additional-content .inset-0 {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+  
+  .additional-content .object-cover {
+    object-fit: cover;
+  }
+  
+  .additional-content .w-full {
+    width: 100%;
+  }
+  
+  .additional-content .h-full {
+    height: 100%;
+  }

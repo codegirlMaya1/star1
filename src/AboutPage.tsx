@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import './AboutPage.css'; // Import the CSS file
 
 interface FeatureCardProps {
   image: string;
@@ -29,33 +30,25 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
 const AboutPage: React.FC = () => {
   return (
     <div className="about-page">
-      <section className="relative flex flex-col justify-center items-center px-20 py-28 w-full min-h-[530px] max-md:px-5 max-md:pt-24 max-md:max-w-full">
-        <img
-          src="src/hands.png"
-          alt="About Us Background"
-          className="object-cover absolute inset-0 w-full h-full"
-        />
-        <div className="relative flex flex-col items-center max-w-full w-[919px] z-10">
-          <div className="flex flex-col items-center w-full text-white">
-            <h1 className="text-8xl font-bold max-md:max-w-full max-md:text-4xl">
-              About Us
-            </h1>
-            <p className="text-lg text-center max-md:max-w-full">
-              Welcome to StarGigs, your ultimate destination for discovering and
-              booking exceptional talent! Whether you're planning a private event,
-              corporate function, or a public concert, StarGigs connects you with
-              the finest musicians, entertainers, and performers from around the
-              globe. Our platform makes it easy to find and hire top-rated artists
-              that suit your specific needs and budget. At StarGigs, we are
-              passionate about bringing extraordinary performances to life,
-              ensuring your event is memorable and spectacular. Explore our
-              diverse roster of talent and let us help you create an unforgettable
-              experience.
-            </p>
-          </div>
-          <button className="gap-2.5 self-stretch px-2.5 py-2.5 mt-9 max-w-full text-lg font-semibold text-center text-black bg-orange-600 rounded-xl min-h-10 w-[135px]">
-            See More
-          </button>
+      <section className="relative flex flex-col justify-center items-center px-20 py-28 w-full min-h-[530px] max-md:px-5 max-md:pt-24 max-md:max-w-full bg-cover bg-center" style={{ backgroundImage: "url('src/hands.png')" }}>
+        <div className="relative flex flex-col items-center max-w-full w-[919px] z-10 text-white centered-high">
+          <p className="text-lg text-center max-md:max-w-full mt-6">
+            <h1 className="center text-jumbo font-bold max-md:max-w-full max-md:text-6xl">About Us</h1>
+            Welcome to StarGigs, your ultimate destination for discovering and
+            booking exceptional talent! Whether you're planning a private event,
+            corporate function, or a public concert, StarGigs connects you with
+            the finest musicians, entertainers, and performers from around the
+            globe. Our platform makes it easy to find and hire top-rated artists
+            that suit your specific needs and budget. At StarGigs, we are
+            passionate about bringing extraordinary performances to life,
+            ensuring your event is memorable and spectacular. Explore our
+            diverse roster of talent and let us help you create an unforgettable
+            experience.
+            <br /><button className="see-more-button gap-2.5 px-2.5 py-2.5 mt-6 text-lg font-semibold text-center rounded-xl min-h-10 w-[135px]">
+  See More
+</button>
+          </p>
+          
         </div>
       </section>
 

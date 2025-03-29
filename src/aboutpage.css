@@ -1,0 +1,57 @@
+/* AboutPage.css */
+.about-page .bg-cover {
+  background-size: cover;
+}
+
+.about-page .bg-center {
+  background-position: center;
+}
+
+.about-page .relative {
+  position: relative;
+}
+
+.about-page .text-white {
+  font-size: 24px;
+  color: white;
+}
+
+.about-page .z-10 {
+  z-index: 10;
+}
+
+.about-page .centered-high {
+  position: absolute;
+  top: 40%; /* Adjust this value to move the text higher */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.about-page .absolute {
+  position: absolute;
+}
+
+.about-page .inset-0 {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.about-page .object-cover {
+  object-fit: cover;
+}
+
+.about-page .w-full {
+  width: 100%;
+}
+
+.about-page .h-full {
+  height: 100%;
+}
+/* AboutPage.css */
+.see-more-button {
+  background-color: #FF4500; /* Set the background color */
+  color: white; /* Set the font color */
+}

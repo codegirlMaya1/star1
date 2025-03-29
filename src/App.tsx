@@ -63,10 +63,14 @@ function App() {
         <Route path="/about" element={<AboutUs />} /> {/* Use the AboutUs component */}
         <Route path="/reviews" element={<ReviewsPage />} /> {/* Add the ReviewsPage route */}
         <Route path="/three-columns" element={<ThreeColumns />} /> {/* Add the ThreeColumns route */}
-        <Route path="/stacked-column" element={<StackedColumn />} /> {/* Add the StackedColumn route */}
+        <Route path="/stacked-column" element={
+          <StackedColumn> {/* Ensure children are passed */}
+            <div>Content for StackedColumn</div>
+          </StackedColumn>
+        } /> {/* Add the StackedColumn route */}
       </Routes>
       <div className="footer-padding"> {/* Add padding above the footer */}
-        {location.pathname !== '/three-columns' && <Footer />} {/* Conditionally render the footer */}
+        {location.pathname !== '/three-columns' && location.pathname !== '/about' && <Footer />} {/* Conditionally render the footer */}
       </div>
     </div>
   );

@@ -1,17 +1,14 @@
-import React from 'react';
-import HeroSection from './HeroSection'; // Import the HeroSection component
-import WhyItWorks from './WhyItWorks'; // Import the WhyItWorks component
+import React, { ReactNode } from 'react';
 import './StackedColumn.css'; // Import the CSS file for styling
 
-const StackedColumn: React.FC = () => {
+interface StackedColumnProps {
+  children: ReactNode;
+}
+
+const StackedColumn: React.FC<StackedColumnProps> = ({ children }) => {
   return (
     <div className="container">
-      <div className="section hero">
-        <HeroSection /> {/* Add the HeroSection component */}
-      </div>
-      <div className="section features">
-        <WhyItWorks /> {/* Add the WhyItWorks component */}
-      </div>
+      {children}
     </div>
   );
 };

@@ -1,22 +1,26 @@
 "use client";
 
 import React from 'react';
-import Header from './Header'; // Import the Header component
-import HeroSection from './HeroSection'; // Import the HeroSection component
+import AboutPage from './AboutPage'; // Import the AboutPage component
 import WhyItWorks from './WhyItWorks'; // Import the WhyItWorks component
+
+import StackedColumn from './StackedColumn'; // Import the StackedColumn component
 import Footer from './Footer'; // Import the Footer component
-import OneColumnLayout from './OneColumnLayout'; // Import the OneColumnLayout component
 
 const AboutUs: React.FC = () => {
   return (
-    <OneColumnLayout>
-      <Header /> {/* Add the Header component */}
-      <div className="pt-16"> {/* Add padding to prevent overlap */}
-        <HeroSection /> {/* Add the HeroSection component */}
+    <StackedColumn> {/* Use StackedColumn layout */}
+      <div className="pt-8"> {/* Reduce padding to prevent overlap */}
+        <AboutPage /> {/* Add the AboutPage component */}
       </div>
-      <WhyItWorks /> {/* Add the WhyItWorks component */}
-      <Footer /> {/* Add the Footer component */}
-    </OneColumnLayout>
+      <div className="pt-8"> {/* Add another column */}
+        <WhyItWorks /> {/* Add the WhyItWorks component */}
+      </div>
+    
+      <div className="pt-8"> {/* Add the footer column */}
+        <Footer /> {/* Add the Footer component */}
+      </div>
+    </StackedColumn>
   );
 };
 
