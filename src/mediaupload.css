@@ -1,0 +1,126 @@
+/* mediaupload.css */
+
+.media-upload-section {
+    padding: 20px;
+  }
+  
+  .media-upload-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  
+  @media (max-width: 768px) {
+    .media-upload-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  h1 {
+    margin-bottom: 20px;
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  
+  p {
+    margin-bottom: 40px;
+    font-size: 1.25rem;
+  }
+  
+  .text-center {
+    text-align: center;
+  }
+  
+  .my-10 {
+    margin: 40px 0;
+  }
+  .custom-padding {
+    padding-top: -1000rem; /* Adjust the value as needed */
+  }
+ 
+  
+  .media-upload-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  @media (min-width: 768px) {
+    .media-upload-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  
+  .grid {
+    display: grid;
+    gap: 1rem;
+  }
+  
+  @media (min-width: 768px) {
+    .grid-cols-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  .custom-padding {
+    padding-top: 4rem; /* Adjust the value as needed */
+  }
+  
+  .media-upload-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  @media (min-width: 768px) {
+    .media-upload-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .media-upload-grid {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+  }
+  
+  .gallery-section {
+    margin-top: 2rem;
+  }
+  
+  .gallery-grid {
+    display: grid;
+    gap: 1rem;
+  }
+  
+  .gallery-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  @media (min-width: 640px) {
+    .gallery-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .gallery-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .gallery-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+  .main-content {
+    margin-top: 60px; /* Adjust this value as needed */
+  }

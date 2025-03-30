@@ -7,12 +7,12 @@ export const LoginBanner: React.FC = () => {
         <div className="flex">
           <div className="flex relative flex-col flex-1 shrink items-start px-16 pt-16 w-full rounded-3xl basis-0 min-h-[1024px] min-w-60 pb-[916px] max-md:px-5 max-md:pb-24 max-md:max-w-full">
             <img
-              src={require('./assets/login_art.jpg')}
+              src={require('login_art.jpg')}
               alt="Background"
               className="object-cover absolute inset-0 size-full"
             />
             <img
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/8b4e07f2b37f0a21a6cdbf6735f21b43b265599c?placeholderIfAbsent=true&apiKey=03e3c575566b4bc08e40e1aed06e4ab4"
+              src="Logo.png"
               alt="Logo"
               className="object-contain max-w-full aspect-[4.35] w-[183px]"
             />

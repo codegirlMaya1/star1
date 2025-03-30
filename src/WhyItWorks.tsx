@@ -32,17 +32,17 @@ const WhyItWorks: React.FC = () => {
       </div>
       <div className="flex flex-wrap justify-center gap-10 items-start mt-5 max-md:max-w-full">
         <FeatureCard
-          image="src/ab.png"
+          image="/ab.png"
           title="Personalized bookings"
           description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
         />
         <FeatureCard
-          image="src/ab.png"
+          image="/ab.png"
           title="Trusted creators"
           description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
         />
         <FeatureCard
-          image="src/ab1.png"
+          image="/ab1.png"
           title="To empower creators"
           description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
         />

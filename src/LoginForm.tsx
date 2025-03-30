@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { useNavigate } from 'react-router-dom';
-import { LoginInputField } from "./LoginInputField";
+import { InputField } from "./InputField";
 import { LoginButton } from "./LoginButton";
 import { SocialLogin } from "./SocialLogin";
 import './loginform.css'; // Import the CSS file
@@ -10,14 +10,28 @@ interface LoginFormProps {
 }
 
 export const LoginForm: React.FC<LoginFormProps> = ({ onSignUpClick }) => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  const [email, setEmail] = React.useState("");
+  const [password, setPassword] = React.useState("");
 
-  const handleLoginClick = () => {
-    console.log("Logging in with", email, password);
-    // Add your login logic here
-    navigate('/contact'); // Navigate to the contact page
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const storedEmail = localStorage.getItem('email');
+    const storedPassword = localStorage.getItem('password');
+
+    if (email === storedEmail && password === storedPassword) {
+      console.log("Logging in with", email, password);
+      navigate('/contact'); // Navigate to the contact page
+    } else {
+      alert("Invalid email or password. Please try again.");
+    }
+  };
+
+  const handleClick = () => {
+    const form = document.querySelector('form');
+    if (form) {
+      form.dispatchEvent(new Event('submit', { cancelable: true, bubbles: true }));
+    }
   };
 
   return (
@@ -31,10 +45,11 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onSignUpClick }) => {
         </p>
       </header>
 
-      <form className="flex flex-col space-y-6 items-center">
+      <form onSubmit={handleSubmit} className="flex flex-col space-y-6 items-center">
         <div className="mt-4 w-full">
-          <LoginInputField
+          <InputField
             label="Email"
+            type="email"
             value={email}
             onChange={setEmail}
             placeholder="johndoe123@gmail.com"
@@ -42,24 +57,25 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onSignUpClick }) => {
           />
         </div>
 
-        <LoginInputField
-          label="Password"
-          type="password"
-          value={password}
-          onChange={setPassword}
-          error={true}
-          className="w-full"
-        />
+        <div className="mt-4 w-full">
+          <InputField
+            label="Password"
+            type="password"
+            value={password}
+            onChange={setPassword}
+            className="w-full"
+          />
+        </div>
 
         <button
           type="button"
           className="text-base leading-loose text-center text-white bg-transparent w-full"
-          onClick={handleLoginClick}
+          onClick={() => alert("Forgot Password functionality not implemented yet.")}
         >
           Forgot Password?
         </button>
 
-        <LoginButton onClick={handleLoginClick} className="w-full bg-black text-white">
+        <LoginButton onClick={handleClick} className="w-full bg-black text-white">
           Log in
         </LoginButton>
       </form>

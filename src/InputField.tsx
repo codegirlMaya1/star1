@@ -9,6 +9,7 @@ interface InputFieldProps {
   placeholder?: string;
   error?: string;
   isPassword?: boolean;
+  className?: string; // Add this line
 }
 
 export const InputField: React.FC<InputFieldProps> = ({
@@ -19,9 +20,10 @@ export const InputField: React.FC<InputFieldProps> = ({
   placeholder,
   error,
   isPassword,
+  className, // Add this line
 }) => {
   return (
-    <div className="w-full max-w-[388px]">
+    <div className={`w-full max-w-[388px] ${className}`}> {/* Add className here */}
       <label className="text-sm leading-none text-black">{label}</label>
       <div
         className={`flex gap-2.5 items-center px-4 py-4 mt-1.5 w-full text-base leading-loose bg-white rounded-xl border border-solid ${

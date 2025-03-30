@@ -4,9 +4,11 @@ import * as React from "react";
 interface PasswordInputProps {
   placeholder: string;
   label: string;
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-export function PasswordInput({ placeholder, label }: PasswordInputProps) {
+export function PasswordInput({ placeholder, label, value, onChange }: PasswordInputProps) {
   const [showPassword, setShowPassword] = React.useState(false);
 
   return (
@@ -17,6 +19,8 @@ export function PasswordInput({ placeholder, label }: PasswordInputProps) {
           type={showPassword ? "text" : "password"}
           placeholder={placeholder}
           className="w-full text-base leading-7 border-[none] text-black text-opacity-50"
+          value={value}
+          onChange={onChange}
         />
         <button
           type="button"
@@ -55,4 +59,5 @@ export function PasswordInput({ placeholder, label }: PasswordInputProps) {
     </div>
   );
 }
+
 export default PasswordInput;

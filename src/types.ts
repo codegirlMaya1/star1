@@ -36,5 +36,19 @@ export interface TestimonialProps {
     videoThumbnail: string;
     videoPlayIcon: string;
   }
+  export interface NavigationItem {
+    label: string;
+    href: string;
+  }
+  
+  export interface MediaItem {
+    url: string;
+    altText: string;
+  }
+  
+  export interface UploadPreview {
+    imageUrl: string;
+    description: string;
+  }
   
   

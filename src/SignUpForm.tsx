@@ -1,5 +1,7 @@
 "use client";
 import * as React from "react";
+import { useState } from "react";
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import { PasswordInput } from "./PasswordInput";
 import { SocialLogin } from "./SocialLogin";
 import './signupform.css'; // Import the CSS file
@@ -9,9 +11,37 @@ interface SignUpFormProps {
 }
 
 export function SignUpForm({ onLoginClick }: SignUpFormProps) {
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [profileImage, setProfileImage] = useState("");
+  const navigate = useNavigate(); // Initialize useNavigate
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
+    if (password !== confirmPassword) {
+      alert("Passwords do not match!");
+      return;
+    }
+    // Save profile image and other details to local storage
+    localStorage.setItem('profileImage', profileImage);
+    localStorage.setItem('username', username);
+    localStorage.setItem('email', email);
+    localStorage.setItem('password', password); // Save password to local storage
+    // Navigate to the login page after successful sign-up
+    navigate('/login');
+  };
+
+  const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0]) {
+      const file = e.target.files[0];
+      const reader = new FileReader();
+      reader.onload = () => {
+        setProfileImage(reader.result as string);
+      };
+      reader.readAsDataURL(file);
+    }
   };
 
   return (
@@ -33,6 +63,8 @@ export function SignUpForm({ onLoginClick }: SignUpFormProps) {
             <input
               type="text"
               placeholder="Enter your username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
               className="w-full text-base leading-7 border-none text-black text-opacity-50"
             />
           </div>
@@ -43,6 +75,8 @@ export function SignUpForm({ onLoginClick }: SignUpFormProps) {
             <input
               type="email"
               placeholder="Example@email.com"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               className="w-full text-base leading-7 border-none text-black text-opacity-50"
             />
           </div>
@@ -50,11 +84,31 @@ export function SignUpForm({ onLoginClick }: SignUpFormProps) {
         <PasswordInput
           label="Password"
           placeholder="At least 8 characters"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
         />
         <PasswordInput
           label="Confirm Password"
           placeholder="Repeat password"
+          value={confirmPassword}
+          onChange={(e) => setConfirmPassword(e.target.value)}
         />
+        <div className="flex flex-col gap-1.5">
+          <label className="text-sm leading-5 text-black">Profile Image</label>
+          <input
+            type="file"
+            accept="image/*"
+            onChange={handleImageUpload}
+            className="mt-1 block w-full"
+          />
+          {profileImage && (
+            <img
+              src={profileImage}
+              alt="Profile Preview"
+              className="mt-2 h-20 w-20 rounded-full"
+            />
+          )}
+        </div>
         <button
           type="submit"
           className="signup-button px-0 py-4 w-full text-base leading-7 text-white bg-black rounded-xl cursor-pointer border-none"

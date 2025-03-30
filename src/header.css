@@ -1,7 +1,7 @@
-/* header.css */
 header {
   background-color: #000000; /* Vibrant black color */
   padding: 10px 20px; /* Add minimal padding to the header */
+  margin-bottom: 150px; /* Increase margin to the bottom of the header */
 }
 
 header nav a {

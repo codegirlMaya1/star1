@@ -1,12 +1,12 @@
 import React from 'react';
-import Header from './Header';
+
 import ContactForm from './ContactForm';
 import ContactInformation from './ContactInformation1';
 
 const ContactStar: React.FC = () => {
   return (
     <div>
-      <Header />
+    
       <main style={{ padding: '20px' }}>
         <h2 style={{ textAlign: 'center', padding: '20px 0', fontWeight: 'bold' }}>Contact Us</h2>
         <div style={{ display: 'flex', justifyContent: 'space-between' }}>

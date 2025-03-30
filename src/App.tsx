@@ -1,17 +1,20 @@
-import './index.css'; // Import the global styles
-import './app.css'; // Import additional styles
-import * as React from "react";
+import React from 'react';
 import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
-import TwoColumnLayout from "./TwoColumnLayout"; // Import the TwoColumnLayout component
-import LoginForm from "./LoginForm"; // Import the LoginForm component
-import { SignUpForm } from "./SignUpForm"; // Import the SignUpForm component
-import Footer from "./Footer"; // Import the Footer component
-import ContactStar from "./ContactStar"; // Import the ContactStar component
-import Header from "./Header"; // Import the Header component
-import AboutUs from "./AboutUs"; // Import the AboutUs component
-import ReviewsPage from "./ReviewsPage"; // Import the ReviewsPage component
-import StackedColumn from "./StackedColumn"; // Import the StackedColumn component
-import ThreeColumns from "./ThreeColumns"; // Import the ThreeColumns component
+import ArtistProfilePage from './ArtistProfilePage'; // Ensure this path is correct
+import DisplayArtist from './DisplayArtist';
+import TwoColumnLayout from "./TwoColumnLayout";
+import LoginForm from "./LoginForm";
+import { SignUpForm } from "./SignUpForm"; // Correct import for SignUpForm
+import Footer from "./Footer";
+import ContactStar from "./ContactStar";
+import Header from "./Header";
+import AboutUs from "./AboutUs";
+import ReviewsPage from "./ReviewsPage";
+import StackedColumn from "./StackedColumn";
+import ThreeColumns from "./ThreeColumns";
+import MediaUpload from "./MediaUpload"; // Import the MediaUpload component
+import './index.css';
+import './app.css';
 
 function App() {
   const [showLogin, setShowLogin] = React.useState(true);
@@ -27,50 +30,90 @@ function App() {
 
   return (
     <div>
-      <Header /> {/* Add the Header component */}
       <Routes>
         <Route path="/" element={
           <TwoColumnLayout
             leftContent={
               showLogin ? (
-                <img src="src/LoginArt.png" alt="Login Art" className="max-w-full h-auto" />
+                <img src="/LoginArt.png" alt="Login Art" className="max-w-full h-auto" />
               ) : (
-                <img src="src/Signup.jpg" alt="Signup Art" className="max-w-full h-auto" />
+                <img src="/Signup.jpg" alt="Signup Art" className="max-w-full h-auto" />
               )
             }
             rightContent={
               showLogin ? (
-                <LoginForm onSignUpClick={handleSignUpClick} /> // Login form
+                <LoginForm onSignUpClick={handleSignUpClick} />
               ) : (
-                <SignUpForm onLoginClick={handleLoginClick} /> // Sign-up form
+                <SignUpForm onLoginClick={handleLoginClick} />
               )
             }
           />
         } />
-        <Route path="/contact" element={<ContactStar />} />
+        <Route path="/contact" element={
+          <>
+            <Header />
+            <ContactStar />
+          </>
+        } />
         <Route path="/login" element={
           <TwoColumnLayout
-            leftContent={<img src="src/LoginArt.png" alt="Login Art" className="max-w-full h-auto" />}
-            rightContent={<LoginForm onSignUpClick={handleSignUpClick} />} // Login form
+            leftContent={<img src="/LoginArt.png" alt="Login Art" className="max-w-full h-auto" />}
+            rightContent={<LoginForm onSignUpClick={handleSignUpClick} />}
           />
         } />
         <Route path="/signup" element={
           <TwoColumnLayout
-            leftContent={<img src="src/Signup.jpg" alt="Signup Art" className="max-w-full h-auto" />}
-            rightContent={<SignUpForm onLoginClick={handleLoginClick} />} // Sign-up form
+            leftContent={<img src="/Signup.jpg" alt="Signup Art" className="max-w-full h-auto" />}
+            rightContent={<SignUpForm onLoginClick={handleLoginClick} />}
           />
         } />
-        <Route path="/about" element={<AboutUs />} /> {/* Use the AboutUs component */}
-        <Route path="/reviews" element={<ReviewsPage />} /> {/* Add the ReviewsPage route */}
-        <Route path="/three-columns" element={<ThreeColumns />} /> {/* Add the ThreeColumns route */}
+        <Route path="/artist-profile" element={
+          <>
+            <Header />
+            <ArtistProfilePage />
+          </>
+        } />
+        <Route path="/display-artist" element={
+          <>
+            <Header />
+            <DisplayArtist />
+          </>
+        } />
+        <Route path="/about" element={
+          <>
+            <Header />
+            <AboutUs />
+          </>
+        } />
+        <Route path="/reviews" element={
+          <>
+            <Header />
+            <ReviewsPage />
+          </>
+        } />
+        <Route path="/three-columns" element={
+          <>
+            <Header />
+            <ThreeColumns />
+          </>
+        } />
         <Route path="/stacked-column" element={
-          <StackedColumn> {/* Ensure children are passed */}
-            <div>Content for StackedColumn</div>
-          </StackedColumn>
-        } /> {/* Add the StackedColumn route */}
+          <>
+            <Header />
+            <StackedColumn>
+              <div>Content for StackedColumn</div>
+            </StackedColumn>
+          </>
+        } />
+        <Route path="/media-upload" element={
+          <>
+            <Header />
+            <MediaUpload />
+          </>
+        } />
       </Routes>
-      <div className="footer-padding"> {/* Add padding above the footer */}
-        {location.pathname !== '/three-columns' && location.pathname !== '/about' && <Footer />} {/* Conditionally render the footer */}
+      <div className="footer-padding">
+        {location.pathname !== '/three-columns' && location.pathname !== '/about' && location.pathname !== '/media-upload' && <Footer />}
       </div>
     </div>
   );

@@ -1,19 +1,26 @@
-import React from "react";
-import fullStar from './fullstar.png';
-import emptyStar from './emptystar.png';
+import React from 'react';
+import './StarRating.css'; // Import any necessary CSS
 
-export const StarRating: React.FC<{ rating: number }> = ({ rating }) => {
+interface StarRatingProps {
+  rating: number;
+}
+
+const fullStar = '/public/fullstar.png'; // Correct path to reference the public directory
+const emptyStar = '/public/emptystar.png'; // Correct path to reference the public directory
+
+export const StarRating: React.FC<StarRatingProps> = ({ rating }) => {
   return (
-    <div className="flex gap-1.5">
-      {[...Array(5)].map((_, index) => (
-        <img
-          key={index}
-          src={index < rating ? fullStar : emptyStar}
-          alt={index < rating ? "Full star" : "Empty star"}
-          width="23"
-          height="23"
-        />
-      ))}
+    <div className="star-rating">
+      {[...Array(5)].map((_, index) => {
+        return (
+          <img
+            key={index}
+            src={index < rating ? fullStar : emptyStar}
+            alt={index < rating ? 'Full Star' : 'Empty Star'}
+            className="star"
+          />
+        );
+      })}
     </div>
   );
 };

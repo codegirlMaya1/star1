@@ -30,7 +30,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
 const AboutPage: React.FC = () => {
   return (
     <div className="about-page">
-      <section className="relative flex flex-col justify-center items-center px-20 py-28 w-full min-h-[530px] max-md:px-5 max-md:pt-24 max-md:max-w-full bg-cover bg-center" style={{ backgroundImage: "url('src/hands.png')" }}>
+      <section className="relative flex flex-col justify-center items-center px-20 py-28 w-full min-h-[530px] max-md:px-5 max-md:pt-24 max-md:max-w-full bg-cover bg-center" style={{ backgroundImage: "url('/hands.png')" }}>
         <div className="relative flex flex-col items-center max-w-full w-[919px] z-10 text-white centered-high">
           <p className="text-lg text-center max-md:max-w-full mt-6">
             <h1 className="center text-jumbo font-bold max-md:max-w-full max-md:text-6xl">About Us</h1>
@@ -58,17 +58,17 @@ const AboutPage: React.FC = () => {
         </div>
         <div className="flex flex-wrap justify-center gap-10 items-start mt-5 max-md:max-w-full">
           <FeatureCard
-            image="src/ab.png"
+            image="/ab.png"
             title="Personalized bookings"
             description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
           />
           <FeatureCard
-            image="src/ab.png"
+            image="/ab.png"
             title="Trusted creators"
             description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
           />
           <FeatureCard
-            image="src/ab1.png"
+            image="/ab1.png"
             title="To empower creators"
             description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
           />

@@ -5,7 +5,7 @@ const HeroSection2: React.FC = () => {
   return (
     <section className="hero">
       <img
-        src="src/review.png"
+        src="review.png"
         alt="About Us Background"
         className="hero-image"
       />

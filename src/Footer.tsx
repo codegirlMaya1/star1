@@ -15,12 +15,12 @@ const Footer: React.FC = () => {
           <p className="footer-address">123 Market Street, City, Country</p>
           <p className="footer-copyright">© 2025 STAR GIGS. All rights reserved.</p>
           <nav className="footer-nav">
-            <a href="#home" className="hover:text-yellow-400">Home</a>
-            <a href="#about" className="hover:text-yellow-400">About</a>
-            <a href="#booking" className="hover:text-yellow-400">Booking</a>
-            <a href="#contact" className="hover:text-yellow-400">Contact</a>
-            <a href="#reviews" className="hover:text-yellow-400">Reviews</a>
-            <a href="#talent-acts" className="hover:text-yellow-400">Talent Acts</a>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#booking">Booking</a>
+            <a href="#contact">Contact</a>
+            <a href="#reviews">Reviews</a>
+            <a href="#talent-acts">Talent Acts</a>
           </nav>
         </div>
       </div>
