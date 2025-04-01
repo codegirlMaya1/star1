@@ -5,6 +5,7 @@ import StarIcon from "../src/StarIcon";
 import HeartIcon from "../src/HeartIcon";
 
 interface ArtistCardProps {
+  id: number;
   name: string;
   image: string;
   imageAlt: string;
@@ -16,9 +17,11 @@ interface ArtistCardProps {
   description: string;
   onHire?: () => void;
   onFavorite?: () => void;
+  hasChanged?: boolean;
 }
 
 export const ArtistCard: React.FC<ArtistCardProps> = ({
+  id,
   name,
   image,
   imageAlt,
@@ -30,9 +33,14 @@ export const ArtistCard: React.FC<ArtistCardProps> = ({
   description,
   onHire,
   onFavorite,
+  hasChanged,
 }) => {
+  if (hasChanged) {
+    return null; // Do not render the card if the information has been changed
+  }
+
   return (
-    <div className="artist-card-container">
+    <div className="artist-card-container" data-artist-id={id}>
       <div className="artist-card">
         <img className="artist-card-image" src={image} alt={imageAlt} />
         <div className="artist-card-body">

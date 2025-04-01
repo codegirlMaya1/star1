@@ -1,30 +1,6 @@
 import React, { useState } from 'react';
 import './ArtistForm.css'; // Import the custom CSS
-
-interface ArtistFormProps {
-  formData: {
-    name: string;
-    image: string;
-    imageAlt: string;
-    distance: string;
-    location: string;
-    rating: number;
-    reviews: number;
-    pricePerHour: number;
-    description: string;
-  };
-  setFormData: React.Dispatch<React.SetStateAction<{
-    name: string;
-    image: string;
-    imageAlt: string;
-    distance: string;
-    location: string;
-    rating: number;
-    reviews: number;
-    pricePerHour: number;
-    description: string;
-  }>>;
-}
+import { ArtistFormProps } from './types'; // Import the type
 
 const states = [
   "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware", "Florida", "Georgia",
@@ -74,6 +50,10 @@ const ArtistForm: React.FC<ArtistFormProps> = ({ formData, setFormData }) => {
     <div className="artist-form-container">
       <h2 className="form-title">Artist Information Form</h2>
       <form className="artist-form">
+        <div className="form-group">
+          <label htmlFor="id" className="form-label">Artist ID:</label>
+          <input type="text" className="form-input" id="id" name="id" value={formData.id} readOnly />
+        </div>
         <div className="form-group">
           <label htmlFor="name" className="form-label">Name:</label>
           <input type="text" className="form-input" id="name" name="name" value={formData.name} onChange={handleChange} />

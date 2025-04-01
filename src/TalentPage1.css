@@ -1,0 +1,12 @@
+.talent-page-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+    padding: 16px;
+  }
+  
+  .artist-card-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }

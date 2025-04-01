@@ -20,7 +20,7 @@ const Footer: React.FC = () => {
             <a href="#booking">Booking</a>
             <a href="#contact">Contact</a>
             <a href="#reviews">Reviews</a>
-            <a href="#talent-acts">Talent Acts</a>
+            <a href="/talent-page-1">Talent Acts</a> {/* Updated link */}
           </nav>
         </div>
       </div>

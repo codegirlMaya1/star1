@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
 import ArtistProfilePage from './ArtistProfilePage';
 import DisplayArtist from './DisplayArtist';
@@ -14,12 +14,26 @@ import ReviewsPage from "./ReviewsPage";
 import StackedColumn from "./StackedColumn";
 import ThreeColumns from "./ThreeColumns";
 import MediaUpload from "./MediaUpload";
+import TalentPage1 from "./TalentPage1"; // Import TalentPage1
 import './index.css';
 import './app.css';
+import { ArtistFormProps } from './types'; // Import the type
 
 function App() {
   const [showLogin, setShowLogin] = React.useState(true);
   const location = useLocation();
+  const [formData, setFormData] = useState<ArtistFormProps['formData']>({
+    id: 1,
+    name: '',
+    image: '',
+    imageAlt: '',
+    distance: '',
+    location: '',
+    rating: 0,
+    reviews: 0,
+    pricePerHour: 0,
+    description: '',
+  });
 
   const handleLoginClick = () => {
     setShowLogin(true);
@@ -115,7 +129,13 @@ function App() {
         <Route path="/two-column-talent" element={ // Added route
           <>
             <Header />
-            <TwoColumnTalent />
+            <TwoColumnTalent formData={formData} setFormData={setFormData} />
+          </>
+        } />
+        <Route path="/talent-page-1" element={ // Added route for TalentPage1
+          <>
+            <Header />
+            <TalentPage1 />
           </>
         } />
       </Routes>

@@ -1,24 +1,58 @@
 .artist-card-container {
     max-width: 400px;
     margin: 0 auto;
+    perspective: 1000px; /* Add perspective for 3D effect */
   }
   
   .artist-card {
-    background-color: white; /* Ensure the background is black */
-    color: black; /* Ensure the text is white */
+    background-color: white;
+    color: black;
     border-radius: 0.5rem;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border: 5px solid black; /* Add black border */
+    border: 5px solid black;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    position: relative;
+  }
+  
+  .artist-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+  }
+  
+  .artist-card-container:active .artist-card-inner {
+    transform: rotateY(180deg);
+  }
+  
+  .artist-card-front, .artist-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+  }
+  
+  .artist-card-front {
+    background-color: white;
+    color: black;
+  }
+  
+  .artist-card-back {
+    background-color: dodgerblue;
+    color: white;
+    transform: rotateY(180deg);
   }
   
   .artist-card-image {
     width: 100%;
-    height: 200px; /* Adjust the height to fit within the card */
+    height: 200px;
     object-fit: cover;
-    border-top-left-radius: 20%; /* Slightly rounded border */
-    border-top-right-radius: 20%; /* Slightly rounded border */
-    border: 3px solid black; /* Orange border */
+    border-top-left-radius: 20%;
+    border-top-right-radius: 20%;
+    border: 3px solid black;
   }
   
   .artist-card-body {
@@ -60,7 +94,7 @@
     flex-grow: 1;
     background-color: #333;
     color: white;
-    padding: 8px 12px; /* Reduce padding to decrease height */
+    padding: 8px 12px;
     border: none;
     border-radius: 4px;
     display: flex;
@@ -71,27 +105,27 @@
   .btn-favorite {
     background-color: transparent;
     border: #F45E00 2px solid;
-    color: #F45E00; /* Brighter color for the heart icon */
+    color: #F45E00;
     cursor: pointer;
-    font-size: 16px; /* Make the icon smaller */
-    padding: 4px; /* Add padding to make it a mini button */
+    font-size: 16px;
+    padding: 4px;
   }
   
   .calendar-icon {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0 auto 8px auto; /* Center the icon and add margin */
-    width: 60px; /* Increase the size */
-    height: 60px; /* Increase the size */
-    border-radius: 50%; /* Make it round */
-    border: 2px solid white; /* White border */
-    background-color: black; /* Transparent background */
+    margin: 0 auto 8px auto;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 2px solid white;
+    background-color: black;
   }
   
   .calendar-icon svg {
-    width: 40px; /* Adjust the size of the icon */
-    height: 40px; /* Adjust the size of the icon */
+    width: 40px;
+    height: 40px;
   }
   
   .details {
