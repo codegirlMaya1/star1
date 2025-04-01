@@ -50,5 +50,13 @@ export interface TestimonialProps {
     imageUrl: string;
     description: string;
   }
+  export interface UploadPreview {
+    imageUrl: string;
+    description: string;
+  }
   
+  export interface MediaItem {
+    url: string;
+    altText: string;
+  }
   

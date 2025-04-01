@@ -1,82 +1,53 @@
-import React from "react";
-import MediaGallery from "./MediaGallery";
+import React, { useState, useEffect } from "react";
 import UploadSection from "./UploadSection";
 import ImagePreview from "./ImagePreview";
-import YouTubeLink from "./YouTubeLink";
-import DeleteConfirmation from "./DeleteConfirmation";
-import './mediaupload.css'; // Import the new CSS file
+import MediaGallery from "./MediaGallery";
+import { UploadPreview, MediaItem } from "./types";
 
-const demoGalleryItems = Array(5).fill({
-  url: "/gray.png", // Updated to use the image path from the public directory
-  altText: "Gallery image",
-});
+const MediaUpload: React.FC = () => {
+  const userId = localStorage.getItem("userId");
+  const [preview, setPreview] = useState<UploadPreview | null>(null);
+  const [galleryItems, setGalleryItems] = useState<MediaItem[]>([]);
 
-export const MediaUpload: React.FC = () => {
+  useEffect(() => {
+    if (userId) {
+      const storedItems = localStorage.getItem(`mediaGallery_${userId}`);
+      if (storedItems) {
+        setGalleryItems(JSON.parse(storedItems));
+      }
+    }
+  }, [userId]);
+
+  useEffect(() => {
+    if (userId) {
+      localStorage.setItem(`mediaGallery_${userId}`, JSON.stringify(galleryItems));
+    }
+  }, [galleryItems, userId]);
+
   const handleUpload = (files: FileList) => {
-    console.log("Uploading files:", files);
+    const file = files[0];
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      setPreview({ imageUrl: e.target?.result as string, description: "" });
+    };
+    reader.readAsDataURL(file);
   };
 
-  const handleImageUpload = (description: string) => {
-    console.log("Uploading image with description:", description);
-  };
-
-  const handleYouTubeLink = (url: string) => {
-    console.log("Linking YouTube video:", url);
-  };
-
-  const handleDelete = () => {
-    console.log("Deleting image");
+  const handleAddToGallery = (description: string) => {
+    if (preview) {
+      const newItem = { url: preview.imageUrl, altText: description };
+      const updatedItems = [...galleryItems, newItem];
+      setGalleryItems(updatedItems);
+      setPreview(null);
+    }
   };
 
   return (
-    <>
-      <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap"
-        rel="stylesheet"
-      />
-      <main className="flex flex-col bg-white min-h-[screen] custom-padding"> {/* Added custom-padding class */}
-        <section className="media-upload-section px-9 py-10">
-          <h1 className="mb-3.5 text-2xl font-bold">Upload Media</h1>
-          <p className="mb-11 text-lg">
-            Upload your media such as images, videos, and audios to showcase it on your profile.
-          </p>
-
-          <div className="media-upload-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-            <div>
-              <UploadSection onUpload={handleUpload} />
-            </div>
-            <div>
-              <ImagePreview
-                preview={{
-                  imageUrl: "/gray.png", // Updated to use the image path from the public directory
-                  description: "",
-                }}
-                onUpload={handleImageUpload}
-              />
-            </div>
-            <div>
-              <YouTubeLink onSubmit={handleYouTubeLink} />
-            </div>
-            <div>
-              <DeleteConfirmation
-                imageUrl="/gray.png" // Updated to use the image path from the public directory
-                onDelete={handleDelete}
-                onCancel={() => console.log("Cancelled deletion")}
-              />
-            </div>
-          </div>
-
-          <p className="my-10 text-base text-center">
-            ***** The below components should be shown after the user uploads the respective file format from above component *****
-          </p>
-
-          <section className="gallery-section px-9 py-10">
-            <h2 className="mb-3.5 text-xl font-bold">Gallery</h2>
-            <MediaGallery items={demoGalleryItems} /> {/* MediaGallery component called last */}
-          </section>
-        </section>
-      </main>
-    </>
+    <div className="media-upload">
+      <UploadSection onUpload={handleUpload} />
+      {preview && <ImagePreview preview={preview} onUpload={handleAddToGallery} />}
+      <MediaGallery items={galleryItems} userId={userId} />
+    </div>
   );
 };
 

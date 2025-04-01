@@ -8,7 +8,7 @@ interface ImagePreviewProps {
 }
 
 const ImagePreview: React.FC<ImagePreviewProps> = ({ preview, onUpload }) => {
-  const [description, setDescription] = useState("");
+  const [description, setDescription] = useState(preview.description);
 
   return (
     <section className="flex gap-5 mb-10 max-md:flex-col">

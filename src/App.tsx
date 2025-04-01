@@ -1,10 +1,11 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
-import ArtistProfilePage from './ArtistProfilePage'; // Ensure this path is correct
+import ArtistProfilePage from './ArtistProfilePage';
 import DisplayArtist from './DisplayArtist';
-import TwoColumnLayout from "./TwoColumnLayout";
+import TwoColumnTalent from "./TwoColumnTalent"; // Updated import
+import TwoColumnLayout from "./TwoColumnLayout"; // Ensure this import is added
 import LoginForm from "./LoginForm";
-import { SignUpForm } from "./SignUpForm"; // Correct import for SignUpForm
+import { SignUpForm } from "./SignUpForm";
 import Footer from "./Footer";
 import ContactStar from "./ContactStar";
 import Header from "./Header";
@@ -12,7 +13,7 @@ import AboutUs from "./AboutUs";
 import ReviewsPage from "./ReviewsPage";
 import StackedColumn from "./StackedColumn";
 import ThreeColumns from "./ThreeColumns";
-import MediaUpload from "./MediaUpload"; // Import the MediaUpload component
+import MediaUpload from "./MediaUpload";
 import './index.css';
 import './app.css';
 
@@ -109,6 +110,12 @@ function App() {
           <>
             <Header />
             <MediaUpload />
+          </>
+        } />
+        <Route path="/two-column-talent" element={ // Added route
+          <>
+            <Header />
+            <TwoColumnTalent />
           </>
         } />
       </Routes>

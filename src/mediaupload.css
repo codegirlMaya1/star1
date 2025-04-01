@@ -1,19 +1,12 @@
-/* mediaupload.css */
-
 .media-upload-section {
-    padding: 20px;
+    padding: 60px; /* Increased padding */
   }
   
   .media-upload-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-  }
-  
-  @media (max-width: 768px) {
-    .media-upload-grid {
-      grid-template-columns: 1fr;
-    }
+    grid-template-columns: 1fr 1fr; /* Two columns layout */
+    gap: 20px; /* Increased gap */
+    row-gap: 40px; /* Added row gap for spacing between rows */
   }
   
   h1 {
@@ -34,58 +27,9 @@
   .my-10 {
     margin: 40px 0;
   }
+  
   .custom-padding {
-    padding-top: -1000rem; /* Adjust the value as needed */
-  }
- 
-  
-  .media-upload-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-  
-  @media (min-width: 768px) {
-    .media-upload-grid {
-      grid-template-columns: 1fr 1fr;
-    }
-  }
-  
-  .grid {
-    display: grid;
-    gap: 1rem;
-  }
-  
-  @media (min-width: 768px) {
-    .grid-cols-3 {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
-  
-  img {
-    max-width: 100%;
-    height: auto;
-  }
-  .custom-padding {
-    padding-top: 4rem; /* Adjust the value as needed */
-  }
-  
-  .media-upload-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-  
-  @media (min-width: 768px) {
-    .media-upload-grid {
-      grid-template-columns: 1fr 1fr;
-    }
-  }
-  
-  @media (min-width: 1024px) {
-    .media-upload-grid {
-      grid-template-columns: 1fr 1fr 1fr 1fr;
-    }
+    padding-top: 400px; /* Significantly increased padding */
   }
   
   .gallery-section {
@@ -94,12 +38,12 @@
   
   .gallery-grid {
     display: grid;
-    gap: 1rem;
+    gap: 5rem;
   }
   
   .gallery-image {
-    width: 100px;
-    height: 100px;
+    width: 50px;
+    height: 50px;
     object-fit: cover;
     border-radius: 8px;
   }
@@ -121,6 +65,15 @@
       grid-template-columns: repeat(4, 1fr);
     }
   }
-  .main-content {
-    margin-top: 60px; /* Adjust this value as needed */
+  
+  .main-content, main {
+    margin-top: 800px; /* Significantly increased margin */
+  }
+  
+  .bg-lightblue {
+    background-color: lightblue;
+  }
+  
+  .bg-lightgreen {
+    background-color: lightgreen;
   }

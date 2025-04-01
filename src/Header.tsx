@@ -7,7 +7,7 @@ import './header.css';
 
 const Header: React.FC = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [profileImage, setProfileImage] = useState('');
+  const [profileImage, setProfileImage] = useState('default-avatar.png'); // Default placeholder image
   const [showDropdown, setShowDropdown] = useState(false);
   const navigate = useNavigate();
 
@@ -41,13 +41,13 @@ const Header: React.FC = () => {
 
   const handleLogout = () => {
     setIsLoggedIn(false);
-    setProfileImage('');
+    setProfileImage('default-avatar.png'); // Reset to default placeholder image
     localStorage.removeItem('profileImage');
     navigate('/login');
   };
 
   const handleMyAccountClick = () => {
-    navigate('/media-upload'); // Link to the MediaUpload page
+    navigate('/two-column-talent'); // Link to the TwoColumnTalent page
   };
 
   return (
@@ -67,32 +67,33 @@ const Header: React.FC = () => {
           <button onClick={handleAboutUsClick} className="px-0 py-3.5 text-base text-stone-50 bg-black">
             About Us
           </button>
-          {isLoggedIn ? (
-            <div className="relative">
-              <img
-                src={profileImage || 'default-avatar.png'}
-                className="h-8 w-8 rounded-full cursor-pointer"
-                alt="User Avatar"
-                onClick={handleLogoClick}
-              />
-              {showDropdown && (
-                <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-10">
-                  <button
-                    onClick={handleMyAccountClick}
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left"
-                  >
-                    My Account
-                  </button>
+          <div className="relative">
+            <img
+              src={profileImage}
+              className="h-8 w-8 rounded-full cursor-pointer"
+              alt="User Avatar"
+              onClick={handleLogoClick}
+            />
+            {showDropdown && (
+              <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-10">
+                <button
+                  onClick={handleMyAccountClick}
+                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left"
+                >
+                  My Account
+                </button>
+                {isLoggedIn && (
                   <button
                     onClick={handleLogout}
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left"
                   >
                     Logout
                   </button>
-                </div>
-              )}
-            </div>
-          ) : (
+                )}
+              </div>
+            )}
+          </div>
+          {!isLoggedIn && (
             <AuthButtons onLoginClick={handleLoginClick} onSignUpClick={handleSignUpClick} />
           )}
         </div>

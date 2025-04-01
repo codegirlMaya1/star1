@@ -1,35 +1,30 @@
-"use client";
-import * as React from "react";
-import { useState } from "react";
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
-import { PasswordInput } from "./PasswordInput";
+// SignUpForm.tsx
+import React, { useState } from "react";
+import { useNavigate } from 'react-router-dom';
+import { handleSignUp } from './authService';
+import PasswordInput from "./PasswordInput";
 import { SocialLogin } from "./SocialLogin";
-import './signupform.css'; // Import the CSS file
+import './signupform.css';
 
 interface SignUpFormProps {
   onLoginClick: () => void;
 }
 
-export function SignUpForm({ onLoginClick }: SignUpFormProps) {
+export const SignUpForm: React.FC<SignUpFormProps> = ({ onLoginClick }) => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [profileImage, setProfileImage] = useState("");
-  const navigate = useNavigate(); // Initialize useNavigate
+  const navigate = useNavigate();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (password !== confirmPassword) {
       alert("Passwords do not match!");
       return;
     }
-    // Save profile image and other details to local storage
-    localStorage.setItem('profileImage', profileImage);
-    localStorage.setItem('username', username);
-    localStorage.setItem('email', email);
-    localStorage.setItem('password', password); // Save password to local storage
-    // Navigate to the login page after successful sign-up
+    await handleSignUp(email, password, profileImage);
     navigate('/login');
   };
 
@@ -125,4 +120,4 @@ export function SignUpForm({ onLoginClick }: SignUpFormProps) {
       </form>
     </div>
   );
-}
+};

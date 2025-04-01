@@ -1,0 +1,56 @@
+.artist-form-container {
+  background-color: #f45e00;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 500px;
+  margin: auto;
+  border: 5px solid white; /* White border */
+  border: 10px solid black; /* Black border */
+}
+
+.form-title {
+  text-align: center;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.artist-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 5px;
+  color: white;
+  text-align: center;
+}
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: black;
+  color: white;
+}
+
+.form-button {
+  background-color: black;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.form-button:hover {
+  background-color: #333;
+}

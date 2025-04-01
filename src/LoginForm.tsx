@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
+import { handleLogin } from './authService';
 import { InputField } from "./InputField";
 import { LoginButton } from "./LoginButton";
 import { SocialLogin } from "./SocialLogin";
-import './loginform.css'; // Import the CSS file
+import './loginform.css';
 
 interface LoginFormProps {
   onSignUpClick: () => void;
@@ -11,20 +12,13 @@ interface LoginFormProps {
 
 export const LoginForm: React.FC<LoginFormProps> = ({ onSignUpClick }) => {
   const navigate = useNavigate();
-  const [email, setEmail] = React.useState("");
-  const [password, setPassword] = React.useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const storedEmail = localStorage.getItem('email');
-    const storedPassword = localStorage.getItem('password');
-
-    if (email === storedEmail && password === storedPassword) {
-      console.log("Logging in with", email, password);
-      navigate('/contact'); // Navigate to the contact page
-    } else {
-      alert("Invalid email or password. Please try again.");
-    }
+    await handleLogin(email, password);
+    navigate('/contact');
   };
 
   const handleClick = () => {
@@ -79,6 +73,15 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onSignUpClick }) => {
           Log in
         </LoginButton>
       </form>
+
+      {/* Display Profile Image */}
+      {localStorage.getItem('profileImage') && (
+        <img
+          src={localStorage.getItem('profileImage')!}
+          alt='Profile'
+          style={{ width: '100px', height: '100px', borderRadius: '50%', marginTop: '20px' }}
+        />
+      )}
 
       <div className="mt-8 text-center w-full">
         <p className="text-neutral-600 mb-4">Sign In / Login with</p>
