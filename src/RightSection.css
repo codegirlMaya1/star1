@@ -1,0 +1,110 @@
+/* rightsection.css */
+.right-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%; /* Half width */
+  padding: 10px;
+  background-color: #ffffff;
+}
+
+.right-section .content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 388px;
+}
+
+.right-section .header {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  background-color: #ffffff;
+}
+
+.right-section .header h2 {
+  font-size: 4rem;
+  font-weight: bold;
+  color: #1f2937; /* text-gray-900 */
+  line-height: 52.2px;
+}
+
+.right-section .header p {
+  font-size: 1.25rem;
+  line-height: 2rem;
+  color: #4b5563; /* text-neutral-600 */
+}
+
+.right-section .verification-code {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.right-section .verification-code input {
+  width: 60px;
+  height: 120px; /* Double the height */
+  font-size: 2rem;
+  text-align: center;
+  border: 2px solid #4b5563; /* Darker gray border */
+  border-radius: 0.5rem; /* rounded-lg */
+}
+
+.right-section .button {
+  width: 100%;
+  height: 3.5rem; /* 14px */
+  font-size: 1rem; /* text-base */
+  line-height: 1.75rem; /* leading-7 */
+  color: #ffffff; /* text-white */
+  background-color: #000000; /* bg-black */
+  border-radius: 0.75rem; /* rounded-xl */
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.right-section .button:hover {
+  background-color: #1f2937; /* hover:bg-gray-900 */
+}
+
+.right-section .resend-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.right-section .resend-section span {
+  font-size: 1rem;
+  color: #4b5563; /* text-neutral-600 */
+}
+
+.right-section .resend-section .resend-button {
+  color: #f97316; /* text-orange-600 */
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .right-section {
+    width: 100%;
+    padding: 5px 10px;
+  }
+
+  .right-section .content {
+    width: 100%;
+  }
+
+  .right-section .header h2 {
+    font-size: 3rem;
+  }
+
+  .right-section .header p {
+    font-size: 1rem;
+  }
+
+  .right-section .verification-code input {
+    width: 50px;
+    height: 100px; /* Adjusted height for smaller screens */
+    font-size: 1.5rem;
+  }
+}

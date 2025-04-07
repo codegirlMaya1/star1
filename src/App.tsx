@@ -1,9 +1,10 @@
+// App.tsx
 import React, { useState } from 'react';
 import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
 import ArtistProfilePage from './ArtistProfilePage';
 import DisplayArtist from './DisplayArtist';
-import TwoColumnTalent from "./TwoColumnTalent"; // Updated import
-import TwoColumnLayout from "./TwoColumnLayout"; // Ensure this import is added
+import TwoColumnTalent from "./TwoColumnTalent";
+import TwoColumnLayout from "./TwoColumnLayout";
 import LoginForm from "./LoginForm";
 import { SignUpForm } from "./SignUpForm";
 import Footer from "./Footer";
@@ -14,13 +15,16 @@ import ReviewsPage from "./ReviewsPage";
 import StackedColumn from "./StackedColumn";
 import ThreeColumns from "./ThreeColumns";
 import MediaUpload from "./MediaUpload";
-import TalentPage1 from "./TalentPage1"; // Import TalentPage1
+import TalentPage1 from "./TalentPage1";
+import VerificationPage from "./VerificationPage";
+import RightSection1 from "./RightSection1"; // Import the RightSection1 component
+import LeftSection2 from "./LeftSection2"; // Import the LeftSection2 component
 import './index.css';
 import './app.css';
-import { ArtistFormProps } from './types'; // Import the type
+import { ArtistFormProps } from './types';
 
 function App() {
-  const [showLogin, setShowLogin] = React.useState(true);
+  const [showLogin, setShowLogin] = useState(true);
   const location = useLocation();
   const [formData, setFormData] = useState<ArtistFormProps['formData']>({
     id: 1,
@@ -126,17 +130,26 @@ function App() {
             <MediaUpload />
           </>
         } />
-        <Route path="/two-column-talent" element={ // Added route
+        <Route path="/two-column-talent" element={
           <>
             <Header />
             <TwoColumnTalent formData={formData} setFormData={setFormData} />
           </>
         } />
-        <Route path="/talent-page-1" element={ // Added route for TalentPage1
+        <Route path="/talent-page-1" element={
           <>
             <Header />
             <TalentPage1 />
           </>
+        } />
+        <Route path="/verification" element={
+          <VerificationPage />
+        } />
+        <Route path="/verification-success" element={ // Added route for verification success page
+          <TwoColumnLayout
+            leftContent={<LeftSection2 />}
+            rightContent={<RightSection1 />}
+          />
         } />
       </Routes>
       <div className="footer-padding">

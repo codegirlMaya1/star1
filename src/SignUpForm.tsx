@@ -25,7 +25,7 @@ export const SignUpForm: React.FC<SignUpFormProps> = ({ onLoginClick }) => {
       return;
     }
     await handleSignUp(email, password, profileImage);
-    navigate('/login');
+    navigate('/verification'); // Navigate to the verification page
   };
 
   const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
