@@ -15,7 +15,7 @@ const Footer: React.FC = () => {
           <p className="footer-address">123 Market Street, City, Country</p>
           <p className="footer-copyright">© 2025 STAR GIGS. All rights reserved.</p>
           <nav className="footer-nav">
-            <a href="#home">Home</a>
+            <a href="/show-talent">Home</a> {/* Updated link for testing */}
             <a href="#about">About</a>
             <a href="#booking">Booking</a>
             <a href="#contact">Contact</a>
