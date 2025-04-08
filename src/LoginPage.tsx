@@ -1,7 +1,7 @@
 "use client";
 import * as React from "react";
-import { LoginForm } from "./LoginForm";
-import { SignUpForm } from "./SignUpForm";
+import LoginForm from "./LoginForm";
+import { SignUpForm } from "./SignUpForm"; // Use named import
 
 export default function LogInPage() {
   const [showSignUp, setShowSignUp] = React.useState(false);

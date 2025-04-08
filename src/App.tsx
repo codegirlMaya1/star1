@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
 import ArtistProfilePage from './ArtistProfilePage';
 import DisplayArtist from './DisplayArtist';
@@ -18,7 +18,7 @@ import TalentPage1 from "./TalentPage1";
 import VerificationPage from "./VerificationPage";
 import RightSection1 from "./RightSection1"; // Import the RightSection1 component
 import LeftSection2 from "./LeftSection2"; // Import the LeftSection2 component
-import ShowTalent from './ShowTalent'; // Import the ShowTalent component
+import ShowTalent1 from './ShowTalent1'; // Import the ShowTalent1 component
 import './index.css';
 import './app.css';
 import { ArtistFormProps } from './types';
@@ -151,10 +151,10 @@ function App() {
             rightContent={<RightSection1 />}
           />
         } />
-        <Route path="/show-talent" element={ // Added route for ShowTalent page
+        <Route path="/show-talent1" element={ // Added route for ShowTalent1 page
           <>
             <Header />
-            <ShowTalent />
+            <ShowTalent1 />
           </>
         } />
       </Routes>

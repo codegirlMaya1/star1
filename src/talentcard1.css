@@ -1,0 +1,100 @@
+/* Carousel container */
+.carousel-container {
+    max-width: 1400px; /* Increase the width of the container */
+    position: relative;
+    margin: auto;
+    border: 2px solid #ccc;
+    padding: 20px;
+    border-radius: 10px;
+    height: auto; /* Adjust height to fit content */
+  }
+  
+  /* Display area */
+  .display-area {
+    width: 1200px; /* Increase the width to fit more cards */
+    overflow-x: hidden;
+    margin: auto;
+  }
+  
+  /* Cards wrapper */
+  .cards-wrapper {
+    display: flex;
+    transition: ease 0.5s;
+  }
+  
+  /* Talent card */
+  .card {
+    height: 450px; /* Increase the height of the card by 2 inches (approx. 50px) */
+    color: white;
+    font-size: 20px; /* Adjust font size */
+    margin: 10px;
+    flex: 1 0 280px; /* Adjust flex to fit more cards */
+    max-width: 280px; /* Ensure cards are not too wide */
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    background-color: transparent; /* Remove the gray background */
+  }
+  
+  /* Talent card image */
+  .card img {
+    width: 100%; /* Stretch the image to full width */
+    height: 250px; /* Set a fixed height for the image */
+    object-fit: cover; /* Ensure the image covers the area */
+    border-radius: 10px; /* Match card border radius */
+  }
+  
+  /* Hire Now button */
+  .hire-now-btn {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    width: 100%; /* Stretch button to full width */
+  }
+  
+  .hire-now-btn:hover {
+    background-color: #45a049; /* Darker green */
+  }
+  
+  /* Dots wrapper */
+  .dots-wrapper {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+  }
+  
+  .dot {
+    border: none;
+    background: rgba(0, 0, 0, 0.2);
+    width: 20px;
+    height: 20px;
+    margin: 5px;
+    border-radius: 50%;
+    outline: none;
+  }
+  
+  .dot:hover {
+    background: rgba(0, 0, 0, 0.3);
+  }
+  
+  .dot.active {
+    background: rgba(0, 0, 0, 0.5);
+  }
+
+  /* Talent card image */
+.card img {
+    width: 100%; /* Stretch the image to full width */
+    height: 250px; /* Set a fixed height for the image */
+    object-fit: cover; /* Ensure the image covers the area */
+    border-radius: 50%; /* Make the image oval */
+  }

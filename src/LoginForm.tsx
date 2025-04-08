@@ -69,7 +69,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onSignUpClick }) => {
           Forgot Password?
         </button>
 
-        <LoginButton onClick={handleClick} className="w-full bg-black text-white">
+        <LoginButton onClick={handleClick} className="w-full bg-black text-white" label="Log in">
           Log in
         </LoginButton>
       </form>

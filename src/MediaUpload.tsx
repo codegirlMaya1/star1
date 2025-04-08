@@ -1,3 +1,5 @@
+// MediaUpload.tsx
+
 import React, { useState, useEffect } from "react";
 import UploadSection from "./UploadSection";
 import ImagePreview from "./ImagePreview";
@@ -28,7 +30,12 @@ const MediaUpload: React.FC = () => {
     const file = files[0];
     const reader = new FileReader();
     reader.onload = (e) => {
-      setPreview({ imageUrl: e.target?.result as string, description: "" });
+      setPreview({
+        file: file,
+        previewUrl: e.target?.result as string,
+        imageUrl: e.target?.result as string,
+        description: ""
+      });
     };
     reader.readAsDataURL(file);
   };

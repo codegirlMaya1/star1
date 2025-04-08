@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import TwoColumnLayout from "./TwoColumnLayout";
-import { LoginForm } from "./LoginForm";
+import LoginForm from "./LoginForm";
 
 const SignInPage: React.FC = () => {
   const handleSignUpClick = () => {
